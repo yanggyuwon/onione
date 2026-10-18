@@ -1,36 +1,240 @@
+
 <!DOCTYPE html>
-<html>
-<!-- <html>
-    <head>
-
-        <body>
-            <h2>이미지파일 불러오기</h2>
-            <figure>
-                <img src="image1.jpg" alt="아 사진 안 나옴"> <br> 
-                <figcaption>그림입니다.</figcaption>
-                <img src="image1.jpg" width = "50%">
-                <img src="image1.jpg" height = "500px">
-                <img src="image1.jpg" width = "500" height = "500px">
-            </figure>
-
-        </body>
-    </head>
-</html> -->
+<html lang="ko">
 <head>
-    
     <meta charset="UTF-8">
-
-    <style type = "text/css">
-        p{font-size:10pt}
-        a:link{color:blue;}
-        a:visited{color:green;}
-        h3:before{content:"♦︎";color:blue}
-        h3:after{content:"©";font-size:10pt}
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onione | 개인 이력서</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h3><strong>스타일시트</strong>이해하기</h3>
-    <p>이 예제는 <strong> CSS</strong>의 개념을 설명합니다.</p>
-    <p>선택자에 <a href = "http://www.w3c.org">가상클래스</a>와 <a href = "http://mm.sm.ac.kr">선택자 조합</a>을 적용하여 스타일을 지정합니다</p>
+
+    <!-- 상단 소개 영역 -->
+    <header class="hero">
+
+        <h1 class="logo">onione</h1>
+
+        <div class="intro">
+            <p class="school">
+                상명대학교 소프트웨어학과 1학년
+            </p>
+
+            <p class="description">
+                웹 개발과 인공지능에 관심을 두고 있습니다.
+            </p>
+
+            <a class="github"
+               href="https://github.com/yanggyuwon"
+               target="_blank"
+               rel="noopener noreferrer">
+                GitHub ↗
+            </a>
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- 실적 영역 -->
+        <section class="section achievements" id="achievements">
+
+            <h2 class="section-title">실적</h2>
+
+            <div class="table-wrap">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">시기</th>
+                            <th scope="col">분류</th>
+                            <th scope="col">내용</th>
+                            <th scope="col">역할</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>2025.07</td>
+                            <td>프로젝트</td>
+                            <td>구리, 황동, 아연의 항균성 탐구</td>
+                            <td>총무</td>
+                        </tr>
+
+                        <tr>
+                            <td>2024.04</td>
+                            <td>프로젝트</td>
+                            <td>녹말을 통한 햇빛 유무에 따른 식물 광합성 확인 및 현미경 관찰 탐구</td>
+                            <td>총무</td>
+                        </tr>
+
+                        <tr>
+                            <td>2024.04</td>
+                            <td>활동</td>
+                            <td>혈액형 판정 및 루미놀 실험 부스 운영</td>
+                            <td>총무</td>
+                        </tr>
+
+                        <tr>
+                            <td>2023.04</td>
+                            <td>활동</td>
+                            <td>DNA 전기영동 실험</td>
+                            <td>부원</td>
+                        </tr>
+
+                        <tr>
+                            <td>2023.03</td>
+                            <td>활동</td>
+                            <td>고등학교 생명과학 동아리</td>
+                            <td>부원</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </section>
+
+
+        <!-- 수강 과목 영역 -->
+        <section class="section courses" id="courses">
+
+            <h2 class="section-title">수강과목 (26 - 2)</h2>
+
+            <ul class="course-list">
+
+                <li class="course-item">
+                    <span class="course-name">컴퓨터프로그래밍 II</span>
+                    <span class="course-type">전공</span>
+                </li>
+
+                <li class="course-item">
+                    <span class="course-name">컴퓨터프로그래밍 실습 II</span>
+                    <span class="course-type">전공</span>
+                </li>
+
+                <li class="course-item">
+                    <span class="course-name">이산수학</span>
+                    <span class="course-type">전공</span>
+                </li>
+
+                <li class="course-item">
+                    <a class="course-name course-link"
+                       href="#weekly-practice">
+                        웹프로그래밍 및 AI 에이전트
+                    </a>
+                    <span class="course-type">전공</span>
+                </li>
+
+                <li class="course-item">
+                    <span class="course-name">약의 과학 이야기</span>
+                    <span class="course-type">교양</span>
+                </li>
+
+                <li class="course-item">
+                    <span class="course-name">문제해결과 인공지능</span>
+                    <span class="course-type">교양</span>
+                </li>
+
+            </ul>
+        </section>
+
+
+        <!-- 주차별 실습 영역 -->
+        <section class="section weekly" id="weekly-practice">
+
+            <h2 class="section-title">웹프로그래밍과 AI에이전트</h2>
+
+            <div class="week-list">
+
+                <div class="week completed">
+                    <span class="week-number">01주차</span>
+                    <span class="week-title">오리엔테이션</span>
+                </div>
+
+                <a class="week completed" href="doc02.html">
+                    <span class="week-number">02주차</span>
+                    <span class="week-title">실습 파일</span>
+                </a>
+
+                <a class="week completed" href="doc03.html">
+                    <span class="week-number">03주차</span>
+                    <span class="week-title">실습 파일</span>
+                </a>
+
+                <div class="week completed">
+                    <span class="week-number">04주차</span>
+                    <span class="week-title">추석 연휴</span>
+                </div>
+
+                <a class="week completed" href="doc05.html">
+                    <span class="week-number">05주차</span>
+                    <span class="week-title">실습 파일</span>
+                </a>
+
+                <a class="week completed" href="doc06.html">
+                    <span class="week-number">06주차</span>
+                    <span class="week-title">실습 파일</span>
+                </a>
+
+                <a class="week completed" href="doc07.html">
+                    <span class="week-number">07주차</span>
+                    <span class="week-title">실습 파일</span>
+                </a>
+
+                <div class="week planned">
+                    <span class="week-number">08주차</span>
+                    <span class="week-title">예정</span>
+                </div>
+
+                <div class="week planned">
+                    <span class="week-number">09주차</span>
+                    <span class="week-title">예정</span>
+                </div>
+
+                <div class="week planned">
+                    <span class="week-number">10주차</span>
+                    <span class="week-title">예정</span>
+                </div>
+
+                <div class="week planned">
+                    <span class="week-number">11주차</span>
+                    <span class="week-title">예정</span>
+                </div>
+
+                <div class="week planned">
+                    <span class="week-number">12주차</span>
+                    <span class="week-title">예정</span>
+                </div>
+
+                <div class="week planned">
+                    <span class="week-number">13주차</span>
+                    <span class="week-title">예정</span>
+                </div>
+
+                <div class="week planned">
+                    <span class="week-number">14주차</span>
+                    <span class="week-title">예정</span>
+                </div>
+
+                <div class="week planned">
+                    <span class="week-number">15주차</span>
+                    <span class="week-title">예정</span>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- 최종 수정일 -->
+    <footer class="footer">
+        <p>
+            최종 수정일:
+            <time datetime="2026-10-18">2026-10-18</time>
+        </p>
+    </footer>
+
 </body>
 </html>
