@@ -1,241 +1,405 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>onione | 개인 이력서</title>
+    <title>달빛 카페 | 메뉴판</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- 상단 소개 영역 -->
-    <header class="hero">
+    <!-- 입장 화면: 라떼아트를 누르면 메뉴판으로 들어갑니다 -->
+    <input type="checkbox" id="enter" class="enter-toggle" autocomplete="off" aria-label="메뉴판으로 들어가기">
 
-        <h1 class="logo">onione</h1>
+    <div class="intro">
+        <label for="enter" class="latte">
+            <span class="sr-only">라떼아트를 눌러 메뉴판으로 들어가기</span>
 
-        <div class="intro">
-            <p class="school">
-                상명대학교 소프트웨어학과 1학년
-            </p>
+            <!-- 위에서 내려다본 라떼 한 잔 -->
+            <svg class="latte-svg" viewBox="-160 -160 320 320" aria-hidden="true">
+                <defs>
+                    <radialGradient id="coffee" cx="50%" cy="45%" r="62%">
+                        <stop offset="0" stop-color="#BE8A5C"/>
+                        <stop offset="0.7" stop-color="#8E5A35"/>
+                        <stop offset="1" stop-color="#6B4025"/>
+                    </radialGradient>
+                    <radialGradient id="cupface" cx="50%" cy="45%" r="60%">
+                        <stop offset="0.82" stop-color="#FFFDF6"/>
+                        <stop offset="1" stop-color="#EFE0C0"/>
+                    </radialGradient>
+                </defs>
 
-            <p class="description">
-                웹 개발과 인공지능에 관심을 두고 있습니다. (수정 테스트)
-            </p>
+                <!-- 받침 접시 -->
+                <circle r="148" fill="#F6EBD0" stroke="#E3D2AE" stroke-width="3"/>
+                <circle r="124" fill="none" stroke="#E3D2AE" stroke-width="1.5" opacity="0.7"/>
 
-            <a class="github"
-               href="https://github.com/yanggyuwon"
-               target="_blank"
-               rel="noopener noreferrer">
-                GitHub ↗
-            </a>
-        </div>
+                <!-- 손잡이 -->
+                <path d="M112,-18 h26 a15,15 0 0 1 15,15 v6 a15,15 0 0 1 -15,15 h-26" fill="none" stroke="#E3D2AE" stroke-width="16" stroke-linecap="round"/>
+                <path d="M112,-18 h26 a15,15 0 0 1 15,15 v6 a15,15 0 0 1 -15,15 h-26" fill="none" stroke="#FFFDF6" stroke-width="10" stroke-linecap="round"/>
 
-    </header>
+                <!-- 컵 -->
+                <circle r="112" fill="url(#cupface)" stroke="#E3D2AE" stroke-width="3"/>
+                <circle r="96" fill="url(#coffee)"/>
 
+                <!-- 튤립 모양 라떼아트 -->
+                <g fill="#FFF7E8" stroke="#EBCB9E" stroke-width="1.6" stroke-linejoin="round">
+                    <path transform="translate(0,26) scale(1.2)" d="M0,30 C-46,-2 -40,-40 -14,-40 C-6,-40 0,-33 0,-28 C0,-33 6,-40 14,-40 C40,-40 46,-2 0,30 Z"/>
+                    <path transform="translate(0,-6) scale(0.9)" d="M0,30 C-46,-2 -40,-40 -14,-40 C-6,-40 0,-33 0,-28 C0,-33 6,-40 14,-40 C40,-40 46,-2 0,30 Z"/>
+                    <path transform="translate(0,-32) scale(0.6)" d="M0,30 C-46,-2 -40,-40 -14,-40 C-6,-40 0,-33 0,-28 C0,-33 6,-40 14,-40 C40,-40 46,-2 0,30 Z"/>
+                </g>
+                <path d="M0,-62 L0,66" fill="none" stroke="#8E5A35" stroke-width="2.6" stroke-linecap="round" opacity="0.85"/>
+            </svg>
+        </label>
+        <p class="intro-title">달빛 카페</p>
+        <p class="intro-hint">라떼아트를 눌러 메뉴판으로 들어오세요</p>
+    </div>
 
-    <main>
+    <!-- 메뉴판 본문 -->
+    <div class="site">
 
-        <!-- 실적 영역 -->
-        <section class="section achievements" id="achievements">
+        <!-- 상단 이동 메뉴 -->
+        <nav class="top-nav" aria-label="섹션 이동">
+            <a href="#today">오늘의 메뉴</a>
+            <a href="#sale">할인</a>
+            <a href="#drinks">음료</a>
+            <a href="#desserts">디저트</a>
+            <a href="#info">매장 정보</a>
+        </nav>
 
-            <h2 class="section-title">실적</h2>
+        <!-- 상단 소개 영역 -->
+        <header class="hero">
+            <p class="hero-moon" aria-hidden="true">☾</p>
+            <h1 class="hero-title">달빛 카페</h1>
+            <p class="hero-sub">은은한 달빛처럼 포근한 한 잔과 달콤한 디저트</p>
+        </header>
 
-            <div class="table-wrap">
+        <main>
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th scope="col">시기</th>
-                            <th scope="col">분류</th>
-                            <th scope="col">내용</th>
-                            <th scope="col">역할</th>
-                        </tr>
-                    </thead>
+            <!-- 오늘의 메뉴 -->
+            <section class="section" id="today">
+                <h2 class="section-title">오늘의 메뉴</h2>
+                <p class="section-lead">달빛 카페가 가장 자신 있게 권하는 메뉴예요.</p>
 
-                    <tbody>
-                        <tr>
-                            <td>2025.07</td>
-                            <td>프로젝트</td>
-                            <td>구리, 황동, 아연의 항균성 탐구</td>
-                            <td>총무</td>
-                        </tr>
+                <ul class="card-list">
+                    <li class="card">
+                        <p class="card-label">시그니처</p>
+                        <h3 class="card-name">달빛 라떼 <span class="name-en">Moonlight Latte</span></h3>
+                        <p class="card-desc">크림 거품 위에 꿀을 올린 우리 카페 대표 메뉴</p>
+                        <p class="card-bottom">
+                            <span class="tag hot">HOT</span>
+                            <span class="tag ice">ICE</span>
+                            <span class="price">5,500원</span>
+                        </p>
+                    </li>
+                    <li class="card">
+                        <p class="card-label">디저트</p>
+                        <h3 class="card-name">치즈케이크 <span class="name-en">Cheesecake</span></h3>
+                        <p class="card-desc">꾸덕하고 진한 크림치즈 케이크</p>
+                        <p class="card-bottom">
+                            <span class="price">6,500원</span>
+                        </p>
+                    </li>
+                    <li class="card">
+                        <p class="card-label">디저트</p>
+                        <h3 class="card-name">티라미수 <span class="name-en">Tiramisu</span></h3>
+                        <p class="card-desc">에스프레소를 머금은 부드러운 케이크</p>
+                        <p class="card-bottom">
+                            <span class="price">6,500원</span>
+                        </p>
+                    </li>
+                </ul>
+            </section>
 
-                        <tr>
-                            <td>2024.04</td>
-                            <td>프로젝트</td>
-                            <td>녹말을 통한 햇빛 유무에 따른 식물 광합성 확인 및 현미경 관찰 탐구</td>
-                            <td>총무</td>
-                        </tr>
+            <!-- 할인 메뉴 -->
+            <section class="section sale" id="sale">
+                <h2 class="section-title">할인 메뉴</h2>
+                <p class="section-lead">11월 한 달간 진행해요.</p>
 
-                        <tr>
-                            <td>2024.04</td>
-                            <td>활동</td>
-                            <td>혈액형 판정 및 루미놀 실험 부스 운영</td>
-                            <td>총무</td>
-                        </tr>
+                <ul class="sale-list">
+                    <li class="sale-item">
+                        <div>
+                            <h3 class="sale-name">아메리카노 <span class="name-en">Americano</span></h3>
+                            <p class="sale-cond">오후 2시 ~ 5시</p>
+                        </div>
+                        <p class="sale-price">
+                            <s>4,000원</s>
+                            <strong>3,000원</strong>
+                        </p>
+                    </li>
+                    <li class="sale-item">
+                        <div>
+                            <h3 class="sale-name">크루아상 + 아메리카노 세트 <span class="name-en">Croissant &amp; Americano Set</span></h3>
+                            <p class="sale-cond">하루 종일</p>
+                        </div>
+                        <p class="sale-price">
+                            <s>8,000원</s>
+                            <strong>6,500원</strong>
+                        </p>
+                    </li>
+                    <li class="sale-item">
+                        <div>
+                            <h3 class="sale-name">마들렌 <span class="name-en">Madeleine</span></h3>
+                            <p class="sale-cond">음료와 함께 주문 시</p>
+                        </div>
+                        <p class="sale-price">
+                            <s>3,000원</s>
+                            <strong>2,000원</strong>
+                        </p>
+                    </li>
+                </ul>
+            </section>
 
-                        <tr>
-                            <td>2023.04</td>
-                            <td>활동</td>
-                            <td>DNA 전기영동 실험</td>
-                            <td>부원</td>
-                        </tr>
+            <!-- 음료 메뉴 -->
+            <section class="section" id="drinks">
+                <h2 class="section-title">음료</h2>
 
-                        <tr>
-                            <td>2023.03</td>
-                            <td>활동</td>
-                            <td>고등학교 생명과학 동아리</td>
-                            <td>부원</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h3 class="group-title">커피</h3>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">에스프레소 <span class="name-en">Espresso</span></h4>
+                            <span class="tag hot">HOT</span>
+                            <span class="price">3,500원</span>
+                        </div>
+                        <p class="menu-desc">진하게 뽑아낸 에스프레소 한 잔</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">아메리카노 <span class="name-en">Americano</span></h4>
+                            <span class="tag hot">HOT</span>
+                            <span class="tag ice">ICE</span>
+                            <span class="price">4,000원</span>
+                        </div>
+                        <p class="menu-desc">깔끔하고 고소한 기본 커피</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">카페라떼 <span class="name-en">Caffe Latte</span></h4>
+                            <span class="tag hot">HOT</span>
+                            <span class="tag ice">ICE</span>
+                            <span class="price">4,500원</span>
+                        </div>
+                        <p class="menu-desc">에스프레소에 부드러운 우유를 더한 커피</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">바닐라라떼 <span class="name-en">Vanilla Latte</span></h4>
+                            <span class="tag hot">HOT</span>
+                            <span class="tag ice">ICE</span>
+                            <span class="price">5,000원</span>
+                        </div>
+                        <p class="menu-desc">은은한 바닐라 향이 나는 달콤한 라떼</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">카푸치노 <span class="name-en">Cappuccino</span></h4>
+                            <span class="tag hot">HOT</span>
+                            <span class="price">4,500원</span>
+                        </div>
+                        <p class="menu-desc">풍성한 우유 거품을 올린 커피</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">카라멜 마키아토 <span class="name-en">Caramel Macchiato</span></h4>
+                            <span class="tag hot">HOT</span>
+                            <span class="tag ice">ICE</span>
+                            <span class="price">5,300원</span>
+                        </div>
+                        <p class="menu-desc">카라멜 소스를 두른 달콤한 커피</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">콜드브루 <span class="name-en">Cold Brew</span></h4>
+                            <span class="tag ice">ICE</span>
+                            <span class="price">4,800원</span>
+                        </div>
+                        <p class="menu-desc">찬물에 오래 우려 부드럽고 진한 커피</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">달빛 라떼 <span class="name-en">Moonlight Latte</span></h4>
+                            <span class="tag best">추천</span>
+                            <span class="tag hot">HOT</span>
+                            <span class="tag ice">ICE</span>
+                            <span class="price">5,500원</span>
+                        </div>
+                        <p class="menu-desc">크림 거품 위에 꿀을 올린 우리 카페 대표 메뉴</p>
+                    </li>
+                </ul>
 
-            </div>
-        </section>
+                <h3 class="group-title">논커피</h3>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">초코라떼 <span class="name-en">Chocolate Latte</span></h4>
+                            <span class="tag hot">HOT</span>
+                            <span class="tag ice">ICE</span>
+                            <span class="price">5,000원</span>
+                        </div>
+                        <p class="menu-desc">진한 초콜릿을 우유와 함께 만든 음료</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">녹차라떼 <span class="name-en">Green Tea Latte</span></h4>
+                            <span class="tag hot">HOT</span>
+                            <span class="tag ice">ICE</span>
+                            <span class="price">5,000원</span>
+                        </div>
+                        <p class="menu-desc">쌉쌀한 말차에 우유를 섞은 라떼</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">고구마라떼 <span class="name-en">Sweet Potato Latte</span></h4>
+                            <span class="tag hot">HOT</span>
+                            <span class="tag ice">ICE</span>
+                            <span class="price">5,300원</span>
+                        </div>
+                        <p class="menu-desc">달콤한 고구마를 곱게 갈아 만든 라떼</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">딸기우유 <span class="name-en">Strawberry Milk</span></h4>
+                            <span class="tag ice">ICE</span>
+                            <span class="price">5,500원</span>
+                        </div>
+                        <p class="menu-desc">생딸기를 넣은 상큼한 우유</p>
+                    </li>
+                </ul>
 
+                <h3 class="group-title">티와 에이드</h3>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">얼그레이 <span class="name-en">Earl Grey</span></h4>
+                            <span class="tag hot">HOT</span>
+                            <span class="price">4,500원</span>
+                        </div>
+                        <p class="menu-desc">향긋한 베르가못 향의 홍차</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">캐모마일 <span class="name-en">Chamomile</span></h4>
+                            <span class="tag hot">HOT</span>
+                            <span class="price">4,500원</span>
+                        </div>
+                        <p class="menu-desc">편안한 향의 허브티</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">레몬에이드 <span class="name-en">Lemonade</span></h4>
+                            <span class="tag ice">ICE</span>
+                            <span class="price">5,000원</span>
+                        </div>
+                        <p class="menu-desc">상큼한 레몬과 탄산수</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">자몽에이드 <span class="name-en">Grapefruit Ade</span></h4>
+                            <span class="tag ice">ICE</span>
+                            <span class="price">5,500원</span>
+                        </div>
+                        <p class="menu-desc">새콤쌉쌀한 자몽과 탄산수</p>
+                    </li>
+                </ul>
+            </section>
 
-        <!-- 수강 과목 영역 -->
-        <section class="section courses" id="courses">
+            <!-- 디저트 메뉴 -->
+            <section class="section" id="desserts">
+                <h2 class="section-title">디저트</h2>
 
-            <h2 class="section-title">수강과목 (26 - 2)</h2>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">치즈케이크 <span class="name-en">Cheesecake</span></h4>
+                            <span class="tag best">추천</span>
+                            <span class="price">6,500원</span>
+                        </div>
+                        <p class="menu-desc">꾸덕하고 진한 크림치즈 케이크</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">티라미수 <span class="name-en">Tiramisu</span></h4>
+                            <span class="tag best">추천</span>
+                            <span class="price">6,500원</span>
+                        </div>
+                        <p class="menu-desc">에스프레소를 머금은 부드러운 케이크</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">초코 브라우니 <span class="name-en">Chocolate Brownie</span></h4>
+                            <span class="price">4,500원</span>
+                        </div>
+                        <p class="menu-desc">진한 초콜릿이 가득한 촉촉한 브라우니</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">크루아상 <span class="name-en">Croissant</span></h4>
+                            <span class="price">4,000원</span>
+                        </div>
+                        <p class="menu-desc">버터 향이 가득한 바삭한 크루아상</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">소금빵 <span class="name-en">Salt Bread</span></h4>
+                            <span class="price">3,500원</span>
+                        </div>
+                        <p class="menu-desc">겉은 바삭하고 속은 쫄깃한 빵</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">마들렌 <span class="name-en">Madeleine</span></h4>
+                            <span class="price">3,000원</span>
+                        </div>
+                        <p class="menu-desc">레몬 향이 은은한 구움과자</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">휘낭시에 <span class="name-en">Financier</span></h4>
+                            <span class="price">3,000원</span>
+                        </div>
+                        <p class="menu-desc">버터 풍미가 진한 구움과자</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-head">
+                            <h4 class="menu-name">스콘 <span class="name-en">Scone</span></h4>
+                            <span class="price">4,000원</span>
+                        </div>
+                        <p class="menu-desc">겉바속촉 플레인 스콘, 잼 제공</p>
+                    </li>
+                </ul>
+            </section>
 
-            <ul class="course-list">
+            <!-- 매장 정보 -->
+            <section class="section info" id="info">
+                <h2 class="section-title">매장 정보</h2>
 
-                <li class="course-item">
-                    <span class="course-name">컴퓨터프로그래밍 II</span>
-                    <span class="course-type">전공</span>
-                </li>
+                <dl class="info-list">
+                    <div class="info-row">
+                        <dt>영업시간</dt>
+                        <dd>매일 10:00 ~ 22:00 (라스트오더 21:30)</dd>
+                    </div>
+                    <div class="info-row">
+                        <dt>위치</dt>
+                        <dd>서울특별시 종로구 달빛로 12, 1층</dd>
+                    </div>
+                    <div class="info-row">
+                        <dt>연락처</dt>
+                        <dd>02-123-4567</dd>
+                    </div>
+                </dl>
+            </section>
 
-                <li class="course-item">
-                    <span class="course-name">컴퓨터프로그래밍 실습 II</span>
-                    <span class="course-type">전공</span>
-                </li>
+        </main>
 
-                <li class="course-item">
-                    <span class="course-name">이산수학</span>
-                    <span class="course-type">전공</span>
-                </li>
+        <footer class="footer">
+            <p>© 달빛 카페. 모든 메뉴와 가격은 예시입니다.</p>
+        </footer>
 
-                <li class="course-item">
-                    <a class="course-name course-link"
-                       href="#weekly-practice">
-                        웹프로그래밍 및 AI 에이전트
-                    </a>
-                    <span class="course-type">전공</span>
-                </li>
-
-                <li class="course-item">
-                    <span class="course-name">약의 과학 이야기</span>
-                    <span class="course-type">교양</span>
-                </li>
-
-                <li class="course-item">
-                    <span class="course-name">문제해결과 인공지능</span>
-                    <span class="course-type">교양</span>
-                </li>
-
-            </ul>
-        </section>
-
-
-        <!-- 주차별 실습 영역 -->
-        <section class="section weekly" id="weekly-practice">
-
-            <h2 class="section-title">웹프로그래밍과 AI에이전트</h2>
-
-            <div class="week-list">
-
-                <div class="week completed">
-                    <span class="week-number">01주차</span>
-                    <span class="week-title">오리엔테이션</span>
-                </div>
-
-                <a class="week completed" href="doc02.html">
-                    <span class="week-number">02주차</span>
-                    <span class="week-title">실습 파일</span>
-                </a>
-
-                <a class="week completed" href="doc03.html">
-                    <span class="week-number">03주차</span>
-                    <span class="week-title">실습 파일</span>
-                </a>
-
-                <div class="week completed">
-                    <span class="week-number">04주차</span>
-                    <span class="week-title">추석 연휴</span>
-                </div>
-
-                <a class="week completed" href="doc05.html">
-                    <span class="week-number">05주차</span>
-                    <span class="week-title">실습 파일</span>
-                </a>
-
-                <a class="week completed" href="doc06.html">
-                    <span class="week-number">06주차</span>
-                    <span class="week-title">실습 파일</span>
-                </a>
-
-                <a class="week completed" href="doc07.html">
-                    <span class="week-number">07주차</span>
-                    <span class="week-title">실습 파일</span>
-                </a>
-
-                <div class="week planned">
-                    <span class="week-number">08주차</span>
-                    <span class="week-title">예정</span>
-                </div>
-
-                <div class="week planned">
-                    <span class="week-number">09주차</span>
-                    <span class="week-title">예정</span>
-                </div>
-
-                <div class="week planned">
-                    <span class="week-number">10주차</span>
-                    <span class="week-title">예정</span>
-                </div>
-
-                <div class="week planned">
-                    <span class="week-number">11주차</span>
-                    <span class="week-title">예정</span>
-                </div>
-
-                <div class="week planned">
-                    <span class="week-number">12주차</span>
-                    <span class="week-title">예정</span>
-                </div>
-
-                <div class="week planned">
-                    <span class="week-number">13주차</span>
-                    <span class="week-title">예정</span>
-                </div>
-
-                <div class="week planned">
-                    <span class="week-number">14주차</span>
-                    <span class="week-title">예정</span>
-                </div>
-
-                <div class="week planned">
-                    <span class="week-number">15주차</span>
-                    <span class="week-title">예정</span>
-                </div>
-
-            </div>
-        </section>
-
-    </main>
-
-
-    <!-- 최종 수정일 -->
-    <footer class="footer">
-        <p>
-            최종 수정일:
-            <time datetime="2026-10-20">2026-10-20</time>
-        </p>
-    </footer>
+    </div>
 
 </body>
-
 </html>
